@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+attribute vec4 vColor;
+varying vec4 fColor; 
+
+void main() 
+{
+    gl_Position = vPosition;
+    fColor = vColor;
+}
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+varying vec4 fColor; 
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="Common/webgl-utils.js"></script>
+<script type="text/javascript" src="Common/initShaders.js"></script>
+<script type="text/javascript" src="colors.js"></script>
+<script type="text/javascript" src="Common/MV.js"></script>
+</head>
+
+<body>
+
+<select id="Selection Menu" size="3">
+        <option id="0">Interpolate</option>
+        <option id="1">Flat</option>
+        <option id="2">Toggle Boundary</option>
+        <option id="3">Toggle Interior</option>
+</select>
+
+<!-- HTML Color Pickers Below -->
+<div>
+    <input type="color" id="vert1" name="vert1"
+           value="#ff0000">
+    <label for="vert1">vert1</label>
+</div>
+<div>
+    <input type="color" id="vert2" name="vert2"
+           value="#00ff00">
+    <label for="vert2">vert2</label>
+</div>
+<div>
+    <input type="color" id="vert3" name="vert3"
+           value="#0000ff">
+    <label for="vert3">vert3</label>
+</div>
+
+            
+<canvas id="gl-canvas" width="512" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
